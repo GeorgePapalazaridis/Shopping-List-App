@@ -10,4 +10,8 @@ export class HeaderComponent {
     collapsed:boolean = true;
     constructor() {}
 
+    onClickCollapse() {
+        this.collapsed = !this.collapsed;
+    }
+
 }

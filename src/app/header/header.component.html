@@ -9,7 +9,9 @@
                 <!--Here we create the hamburger menu icon (with the three lines). 
                     It's typically used for creating a toggle button in a responsive navigation bar.
                     When this button is clicked, it toggles the value of the collapsed property  -->
-                <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
+
+                <!-- it was like that: (click)="collapsed = !collapsed" -->
+                <button type="button" class="navbar-toggle" (click)="onClickCollapse()">
 
                     <!-- This code uses Angular's *ngFor directive to create three <span> elements with 
                         the CSS class icon-bar. These <span> elements are typically used to represent 
