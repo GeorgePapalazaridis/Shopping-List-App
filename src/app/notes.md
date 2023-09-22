@@ -26,6 +26,10 @@ so, the whole code we will be like:
 
 `npm install bootstrap@3`
 
+For an older version there was the need to add the flag `--save` in order to add a pavkage to our project's 'package.json' file as a dependency, but in newer version this is not necessary.
+e.g.
+`npm install --save bootstrap@3`
+
 (`@3` is referred to bootstrap version)
 this will be installed locally for the specific project and Not globally.
 
@@ -35,7 +39,7 @@ this will be installed locally for the specific project and Not globally.
 
 We also need to let angular know about this bootstrap package and we do that through the "angular.json" file.
 In the "angular.json" at the field `architect > build > styles :` and in there we gave to add the path:
-`"node_modules/bootstrap/dist/css/bootstrap.min.css",`
+`"./node_modules/bootstrap/dist/css/bootstrap.min.css",`
 
 (it needs the whole path) above the `"src/styles.css`.
 
@@ -110,7 +114,20 @@ export class AppModule { }
 
 `ng generate component file_name`
 or shortcut
-`ng g c file_name`
+`ng g c file-name`
+
+#### Flag
+
+Adding the flag `--skip-tests` at the end we prevent the creation of the test file, like this:
+`ng g c file-name --skip-tests`
+
+#### Nest component in a file component
+
+We can nest a component inside a component file by adding the path during the creation of it just like this:
+
+`ng g c file-component/file-name --skip-tests` --> `ng g c recipes/recipe-list --skip-tests`
+
+The above is known as **"Structuring the Folders by Feature"**
 
 After running the above command in the terminal a new component file will automatically create
 
@@ -264,7 +281,7 @@ and the whole code would be like this:
 
 ### Structural Directives
 
-Directives is instruction in the DOM by adding ot remove elements!
+Directives is instruction in the DOM by adding ot remove elements! With a few words, they show or hide elements in the DOM.
 
 For example, components are actualy instruction in the DOM.
 Once we placed the `selector` of our component, at this point of time we instructing Angular to add the content of our component template and the bussiness logic in .ts file, in this place where we use the selector, this is our instruction!
@@ -406,3 +423,11 @@ So, we use the `ngClass` in brackets like this:
 <!-- if the getBtnClass() returns true then it's adding the class -->
 
 ```
+
+Quicke Proccess of a new Angular Project:
+
+- run --> ng new file_name,
+- clean up the files,
+- add bootstrap and check that is okay,
+- Planning the App and create the files for the component,
+- We also have to import in the app component the NgModel in order to be able for two way binding and of course we have to import it in every component that we are going to use it,
