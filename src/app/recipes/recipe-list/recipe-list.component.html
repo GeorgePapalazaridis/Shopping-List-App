@@ -1,1 +1,29 @@
-<app-recipe-item></app-recipe-item>
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success">New Recipe</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <!-- custom attributes like clearfix are not part of the standard HTML specification, 
+            and their behavior is determined by custom JavaScript or CSS code that you or your 
+            development team have implemented.
+
+            Typically, clearfix is used in CSS to clear floats and ensure proper layout when dealing 
+            with floated elements. -->
+        <a href="#" class="list-group-item clearfix" *ngFor="let recipe of recipes">
+            <div class="pull-left col-xs-9 col-sm-9 col-md-9">
+                <h4 class="list-group-item-heading">{{recipe.name}}</h4>
+                <p class="list-group-item-text">{{recipe.description}}</p>
+            </div>
+
+            <span class="pull-right ">
+                <!-- tthis two are the same [src]="recipe.imagePath" -- src="{{recipe.imagePath}}" -->
+                <img src="{{recipe.imagePath}}" alt="{{recipe.name}}" class="img-responsive" style="max-height: 50px;">
+            </span>
+
+        </a>
+        <app-recipe-item></app-recipe-item>
+    </div>
+</div>
