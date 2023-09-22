@@ -1,9 +1,62 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="text-center">
-                <h2>Hellooooo World !!! Header is Here!!</h2>
+<!-- Here it is the header menu -->
+<nav>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <!-- Here it is the container for the header content of a navigation bar -->
+            <div class="navbar-header">
+
+                <!--Here we create the hamburger menu icon (with the three lines). 
+                    It's typically used for creating a toggle button in a responsive navigation bar.
+                    When this button is clicked, it toggles the value of the collapsed property  -->
+                <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
+
+                    <!-- This code uses Angular's *ngFor directive to create three <span> elements with 
+                        the CSS class icon-bar. These <span> elements are typically used to represent 
+                        the "hamburger" icon bars in a responsive navigation menu. The *ngFor directive 
+                        is iterating over an array [1, 2, 3], which is just a simple way to generate three bars. -->
+                    <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+                </button>
+
+                <!-- This is an anchor <a> element with the CSS class navbar-brand. 
+                    It is used for displaying the brand or logo of the website/application in the navigation bar. 
+                    The routerLink="/" attribute is used for routing in Angular. It specifies that clicking this 
+                    link should navigate the user to the root route (usually the homepage) of the application. -->
+                <a routerLink="/" class="navbar-brand">Recipe Book</a>
+            </div>
+
+            <!-- [class.collapse]="collapsed": This is an Angular binding that dynamically adds or removes the collapse 
+                class based on the value of the collapsed property. If collapsed is true, the collapse class is added, 
+                which typically hides or collapses the navigation menu. If collapsed is false, the collapse class is removed,
+                showing the menu.
+
+                (window:resize)="collapsed = true": This is an event listener that listens for the resize event on the window 
+                object. When the window is resized, it sets the collapsed property to true. This is often used to ensure that 
+                the navigation menu collapses when the window size changes, making the menu responsive. -->
+            <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+
+                <!-- here it is the main pages -->
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Recipes</a></li>
+                    <li><a href="#">Shopping List</a></li>
+                </ul>
+
+                <!-- and in this area, at the right top corner we have a dropdown list-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+
+                        <!-- Here we specify the role of this a tag and we add a span tag with the class 'caret'
+                        in order to display the symbol for a dropdown list -->
+                        <a href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+
+                        <!-- here we have the items of the dropdown list -->
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Save Data</a></li>
+                            <li><a href="#">Fetch Data</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-</div>
+    </nav>
+</nav>
